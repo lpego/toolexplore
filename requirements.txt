@@ -1,0 +1,14 @@
+pathlib
+regex
+pandas
+numpy
+scipy
+opencv
+matplotlib
+pillow
+scikit-image
+multiprocess
+joblib
+ffmpeg
+tqdm
+ipykernel
