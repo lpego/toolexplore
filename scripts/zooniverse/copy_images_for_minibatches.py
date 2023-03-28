@@ -21,7 +21,7 @@ sys.path.append(f"{prefix}src")
 sys.path.append(f"{prefix}scripts")
 
 # %% 
-datadir = ("data/")
+datadir = ("data/videos/")
 videoname = ("PICT9_4830_2022-06-17_15-19_001.h264")
 
 # %% 
