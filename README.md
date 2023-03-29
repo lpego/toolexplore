@@ -13,6 +13,7 @@ TO DO
  - fix annotations_triplets_merging.py so that the k parameter beahves as expected (currently with k = 2 grabs frames -1,0,1,2,3)
  - rename annotations_triplets_merging.py more sensibly! 
  
+ - check that manual annotations are not shadows or similar (annotations_triplets_merging.py)
  - implement a global k parameter, prefix, working_directory and videoname parameters so that they can be set across scripts (perhaps a config file?)
  - in copy_images_for_minibatches.py, add  parameter k for reading in a specified of frames around each focal frame
 
