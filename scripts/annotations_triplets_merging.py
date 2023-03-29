@@ -23,6 +23,7 @@ sys.path.append(f"{prefix}scripts")
 # from run_compute_anomaly_scores_triplet_toolexplore import magnitude_score
 
 # %% Set working directory (which video you want to work on): 
+working_directory = "data/batch1"
 videoname = "PICT8_932E_2022-06-17_10-08_003.h264"
 
 # %% How many frames before & after each focal frame should be returned:  
