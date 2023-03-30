@@ -33,6 +33,7 @@ k = 2 # e.g.: 1 for triplets, 2 for quintuplets, etc
 # %% Read in manual annotations sheet: 
 master = pd.read_csv(prefix+working_directory+"Master_Annotations_sheet.csv", skipinitialspace=True)
 master.columns = master.columns.str.strip() # strip whitespace from column names
+# master[["video_name", "insect_id", "insect_behavior", "notes"]] = master[["video_name", "insect_id", "insect_behavior", "notes"]].astype(str)
 
 # %% Parse manual annotations
 if master.loc[master["video_name"] == videoname].empty: 
@@ -42,7 +43,7 @@ else:
     events = master.loc[master["video_name"] == videoname]
 
 # %% Generate filenames corresponding to the frames containing an insect 
-### CHECK FOR ANNOTATIONS THAT ARE ONLY SHADOWS OR THE LIKE!!! 
+### NEED TO CHECK FOR ANNOTATIONS THAT ARE ONLY SHADOWS OR THE LIKE!!! 
 try: 
     events
 except NameError: 
@@ -111,10 +112,10 @@ for x in range(0,len(scores['fname'])):
         temp_dict_inner["focal_frame_"+str(z)] = framename_k
         if focal_frame not in temp_dict_outer: 
             temp_dict_outer[focal_frame] = temp_dict_inner
-            print("Created new sub-dictionary")
+            # print("Created new sub-dictionary")
         else: 
             temp_dict_outer[focal_frame].update(temp_dict_inner)
-            print("Appended to existing sub-dictionary")
+            # print("Appended to existing sub-dictionary")
 
 ### check that the nested dictionaries look right... 
 # temp_dict_inner
@@ -131,7 +132,6 @@ for key, inner_dict in temp_dict_outer.items():
 # %% Add focal_frames_k columns to sorted dataframe
 scores_expanded = pd.concat([scores, pd.DataFrame(focal_frames)], axis=1)
 scores_expanded.to_csv(prefix+working_directory+batchname+videoname+"/scores_expanded.csv")
-### THE RANGE OF FRAMES CAN BE OVERLAPPING... HOW TO DEAL WITH IT?
 
 # %% merge (expanded) annotations with the sorted scores & frames
 scores_merged = pd.merge(scores_expanded, anns_df, left_on="fname", right_on="video_name", how="left")
