@@ -60,7 +60,7 @@ except NameError:
     print("No manual annotations found!") 
 else: 
     if len(events) > 0: 
-        if len(set(os.listdir(prefix+"/data/"+videoname)).intersection(framename)) == len(framename):
+        if len(set(os.listdir(prefix+working_directory+batchname+videoname)).intersection(framename)) == len(framename):
             print("All events have a corresponding frame.") 
         else: 
             print("At least one frame is missing!")
