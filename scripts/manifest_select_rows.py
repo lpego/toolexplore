@@ -33,10 +33,6 @@ rows_to_keep = 200 # specify how many rows you want to keep (starting from the t
 # %% read in manifest.csv file
 manifest = pd.read_csv(prefix+working_directory+batchname+videoname+"/manifest.csv", skipinitialspace=True)
 
-# %% .any(1) gives all matches of a particular value 
-manifest[manifest.eq("PICT8_932E_2022-06-17_10-08_003.h264_frame15735.jpg").any(1)]
-manifest[manifest.eq("PICT8_932E_2022-06-17_10-08_003.h264_frame15735.jpg").any(1)]
-
 # %% we can just check the first and last column of the range for duplicates
 # manifest.iloc[:, [5,10]]
 cols_to_check = ["focal_frame_"+str(-k), "focal_frame_"+str(k)]
